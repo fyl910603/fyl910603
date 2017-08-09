@@ -16,15 +16,7 @@
   
   
   
-    <meta name="description" content="1.简介    Class可以通过extends关键字实现继承.
-class Point {
-    /*...*/
-}
-class ColorPoint extends Point{
-    constructor(x,y,color){
-        super(x,y);//调用父类的constructor(x,y)
-        this.color = color;
-    }...">
+    <meta name="description" content="1.简介    Class可以通过extends关键字实现继承.    class Point {        /…/    }    class ColorPoint extends Point{        constructor(x,y,color){            super(x,y);//调用父类的constructor(x,y)            this.col...">
   
   <title>Class的继承 [ 方方的前端脚步 ]</title>
   
@@ -121,36 +113,24 @@ class ColorPoint extends Point{
   <article id="post">
     <h1>Class的继承</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">Created at 2017-08-09</span>
+      <span id = "post-title-date">撰写于 2017-08-09</span>
       
-        <span id = "post-title-updated">Updated at 2017-08-09</span>
+        <span id = "post-title-updated">修改于 2017-08-09</span>
       
       
       
     </p>
     
-    <p> 1.简介<br>    Class可以通过extends关键字实现继承.</p>
-<pre><code>class Point {
-    /*...*/
-}
-class ColorPoint extends Point{
-    constructor(x,y,color){
-        super(x,y);//调用父类的constructor(x,y)
-        this.color = color;
-    }
-
-    toString(){
+    <p> 1.简介<br>    Class可以通过extends关键字实现继承.<br>    class Point {<br>        /<em>…</em>/<br>    }<br>    class ColorPoint extends Point{<br>        constructor(x,y,color){<br>            super(x,y);//调用父类的constructor(x,y)<br>            this.color = color;<br>        }</p>
+<pre><code>    toString(){
         return this.color + &apos; &apos; + super.toString();//调用父类的toString方法
     }
 }
-
-
-
-注意：
+.注意：
 a.super关键字在这里表示父类的构造函数，用来新建父类的this对象
 b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的
 this对象，而是继承父类的this对象，然后对其进行加工。不调用super方法，
-子类就得不到this对象！
+子类就得不到this对象.
 
 
 
@@ -206,15 +186,15 @@ class B extends A{
 }
 </code></pre></li>
 </ol>
-<pre><code>注:super虽然代表父类A的constructor,但是返回的是子类B的实例，即super内部的this指的
+<pre><code>2.注:super虽然代表父类A的constructor,但是返回的是子类B的实例，即super内部的this指的
 是B，super()在这里相对于A.prototype.constructor.call(this);
 </code></pre>
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
   <div class="random-toc">
-    <h2>Table of Content</h2>
+    <h2>目录</h2>
     
   </div>
 </div>
@@ -226,7 +206,7 @@ class B extends A{
   
 
   
-    <a href="/2017/07/31/hello-world/" class="next">Next post hexo使用中的一些问题 &rarr;</a>
+    <a href="/2017/07/31/hello-world/" class="next">下一篇 hexo使用中的一些问题 &rarr;</a>
   
 </nav>
 
