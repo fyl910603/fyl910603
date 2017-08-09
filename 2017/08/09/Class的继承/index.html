@@ -113,9 +113,9 @@
   <article id="post">
     <h1>Class的继承</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">撰写于 2017-08-09</span>
+      <span id = "post-title-date">Created at 2017-08-09</span>
       
-        <span id = "post-title-updated">修改于 2017-08-09</span>
+        <span id = "post-title-updated">Updated at 2017-08-09</span>
       
       
       
@@ -178,12 +178,14 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
 <li><p>super</p>
 <p>super可以当做函数使用，也可以当做对象使用，两种情况用法不同</p>
 <p>1.用作函数调用时:代表父类的构造函数。ES6中要求子类的构造函数必须执行一次super函数</p>
-<pre><code>class A{}
-class B extends A{
-    constructor(){
-        super();
-    }
-}
+<pre><code>{%codeblock}
+		class A{}
+		class B extends A{
+			constructor(){
+				super();
+			}
+		}
+		{%codeblock%}
 </code></pre></li>
 </ol>
 <pre><code>2.注:super虽然代表父类A的constructor,但是返回的是子类B的实例，即super内部的this指的
@@ -191,10 +193,10 @@ class B extends A{
 </code></pre>
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
-    <h2>目录</h2>
+    <h2>Table of Content</h2>
     
   </div>
 </div>
@@ -206,7 +208,7 @@ class B extends A{
   
 
   
-    <a href="/2017/07/31/hello-world/" class="next">下一篇 hexo使用中的一些问题 &rarr;</a>
+    <a href="/2017/07/31/hello-world/" class="next">Next post hexo使用中的一些问题 &rarr;</a>
   
 </nav>
 
