@@ -16,7 +16,15 @@
   
   
   
-    <meta name="description" content="">
+    <meta name="description" content="1.简介Class可以通过extends关键字实现继承.
+{%codeblock%}
+class Point {
+    /*...*/
+}
+class ColorPoint extends Point{
+    constructor(x,y,color){
+        super(x,y);//调用父类的constructor(x,y)
+        this.color = co...">
   
   <title>Class的继承 [ 方方的前端脚步 ]</title>
   
@@ -121,14 +129,84 @@
       
     </p>
     
-    
+    <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><pre><code>Class可以通过extends关键字实现继承.
+{%codeblock%}
+class Point {
+    /*...*/
+}
+class ColorPoint extends Point{
+    constructor(x,y,color){
+        super(x,y);//调用父类的constructor(x,y)
+        this.color = color;
+    }
+
+    toString(){
+        return this.color + &apos; &apos; + super.toString();//调用父类的toString方法
+    }
+}
+{%codeblock%}
+注意：
+a.super关键字在这里表示父类的构造函数，用来新建父类的this对象
+b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的
+this对象，而是继承父类的this对象，然后对其进行加工。不调用super方法，
+子类就得不到this对象！
+
+{%codeblock%}
+    class Point{/*...*/}
+
+    class ColorPoint extends Point{
+        constructor(){
+
+        }
+    }
+
+    let cp = new ColorPoint(); //ReferenceError
+{%codeblock%}
+上面的代码中ColorPoint继承了父类Point，但是它的构造函数没有调用super方法
+，导致新建实例时报错。
+
+ES6的继承机制:先创造父类的实例对象this(所以必须先调用super方法),然后再用子类的构造函数修改this
+
+如果子类没有定义constructor方法，这个方法会被默认添加。
+{%codeblock%}
+    class ColorPoint extends Point{}
+    //等同于
+    class ColorPoint extends Point{
+        constructor(...args){
+            super(...args);
+        }
+    }
+{%codeblock%}
+注:a.不管有没显示定义，任何一个子类都有constructor方法
+   b.在子类的constructor中只有先调用super之后才可以使用this关键字,否则会报错。这是因为子类实例的
+   创建，是基于对父类实例加工。
+</code></pre><h3 id="2-Object-getPrototypeOf-方法"><a href="#2-Object-getPrototypeOf-方法" class="headerlink" title="2. Object.getPrototypeOf()方法"></a>2. Object.getPrototypeOf()方法</h3><pre><code>:用于从子类上获取父类.
+{%codeblock%}
+    Object.getPrototypeOf(ColorPoint) === Point
+    //true
+{%codeblock%}
+</code></pre><h3 id="3-super关键字"><a href="#3-super关键字" class="headerlink" title="3. super关键字"></a>3. super关键字</h3><pre><code>super可以当做函数使用，也可以当做对象使用，两种情况用法不同
+
+1.用作函数调用时:代表父类的构造函数。ES6中要求子类的构造函数必须执行一次super函数
+
+{%codeblock%}
+    class A{}
+    class B extends A{
+        constructor(){
+            super();
+        }
+    }
+{%codeblock%}
+注:super虽然代表父类A的constructor,但是返回的是子类B的实例，即super内部的this指的
+是B，super()在这里相对于A.prototype.constructor.call(this);
+</code></pre>
   </article>
   <div class="random-toc-area">
   <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Object-getPrototypeOf-方法"><span class="toc-text">2. Object.getPrototypeOf()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-super关键字"><span class="toc-text">3. super关键字</span></a></li></ol>
   </div>
 </div>
 
