@@ -16,8 +16,8 @@
   
   
   
-    <meta name="description" content="简介 Class可以通过extends关键字实现继承
-123456789101112class Point &#123;	/*...*/&#125;class ColorPoint extends Point&#123;	constructor(x,y,color)&#123;		super(x,y);//调用父类的constructor(x,y)		this.color = color;	...">
+    <meta name="description" content="简介Class可以通过extends关键字实现继承
+1234567891011121314151617181920212223242526	class Point &#123;		/*...*/	&#125;	class ColorPoint extends Point&#123;		constructor(x,y,color)&#123;			super(x,y);//调用父类的const...">
   
   <title>Class的继承 [ 方方的前端脚步 ]</title>
   
@@ -114,51 +114,29 @@
   <article id="post">
     <h1>Class的继承</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">撰写于 2017-08-09</span>
+      <span id = "post-title-date">Created at 2017-08-09</span>
       
-        <span id = "post-title-updated">修改于 2017-08-09</span>
+        <span id = "post-title-updated">Updated at 2017-08-09</span>
       
       
       
     </p>
     
-    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><pre><code> Class可以通过extends关键字实现继承
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">	<span class="comment">/*...*/</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(x,y,color)&#123;</div><div class="line">		<span class="keyword">super</span>(x,y);<span class="comment">//调用父类的constructor(x,y)</span></div><div class="line">		<span class="keyword">this</span>.color = color;</div><div class="line">	&#125;</div><div class="line">	toString()&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.color + <span class="string">' '</span> + <span class="keyword">super</span>.toString();<span class="comment">//调用父类的toString方法</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Class可以通过extends关键字实现继承</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">		<span class="comment">/*...*/</span></div><div class="line">	&#125;</div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</div><div class="line">		<span class="keyword">constructor</span>(x,y,color)&#123;</div><div class="line">			<span class="keyword">super</span>(x,y);<span class="comment">//调用父类的constructor(x,y)</span></div><div class="line">			<span class="keyword">this</span>.color = color;</div><div class="line">		&#125;</div><div class="line">		toString()&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.color + <span class="string">' '</span> + <span class="keyword">super</span>.toString();<span class="comment">//调用父类的toString方法</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="string">``</span><span class="string">`  </span></div><div class="line"><span class="string">注意：</span></div><div class="line"><span class="string">	a.super关键字在这里表示父类的构造函数，用来新建父类的this对象</span></div><div class="line"><span class="string">	b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的</span></div><div class="line"><span class="string">	this对象，而是继承父类的this对象，然后对其进行加工。不调用super方法，</span></div><div class="line"><span class="string">	子类就得不到this对象</span></div><div class="line"><span class="string">		`</span><span class="string">``</span>javascript</div><div class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;<span class="comment">/*...*/</span>&#125;</div><div class="line">		<span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</div><div class="line">			<span class="keyword">constructor</span>()&#123;</div><div class="line"></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">let</span> cp = <span class="keyword">new</span> ColorPoint(); <span class="comment">//ReferenceError</span></div></pre></td></tr></table></figure>
+</code></pre><p>  上面的代码中ColorPoint继承了父类Point，但是它的构造函数没有调用super方法<br>    ，导致新建实例时报错<br>    ES6的继承机制:先创造父类的实例对象this(所以必须先调用super方法),然后再用子类的构造函数修改this<br>    如果子类没有定义constructor方法，这个方法会被默认添加<br>        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;&#125;</div><div class="line"><span class="comment">//等同于</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(...args)&#123;</div><div class="line">		<span class="keyword">super</span>(...args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>  注:a.不管有没显示定义，任何一个子类都有constructor方法<br>       b.在子类的constructor中只有先调用super之后才可以使用this关键字,否则会报错。这是因为子类实例的<br>       创建，是基于对父类实例加工</p>
+<h3 id="Object-getPrototypeOf-方法"><a href="#Object-getPrototypeOf-方法" class="headerlink" title="Object.getPrototypeOf()方法"></a>Object.getPrototypeOf()方法</h3><p>用于从子类上获取父类.<br>            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.getPrototypeOf(ColorPoint) === Point</div><div class="line"><span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><p>super可以当做函数使用，也可以当做对象使用，两种情况用法不同</p>
+<p>1.用作函数调用时:代表父类的构造函数。ES6中要求子类的构造函数必须执行一次super函数<br>        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">	<span class="keyword">constructor</span>()&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.注:super虽然代表父类A的constructor,但是返回的是子类B的实例，即super内部的this指的是B，super()在这里相当于：A.prototype.constructor.call(this);</p>
 
-注意：
-a.super关键字在这里表示父类的构造函数，用来新建父类的this对象
-b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的
-this对象，而是继承父类的this对象，然后对其进行加工。不调用super方法，
-子类就得不到this对象
-    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;<span class="comment">/*...*/</span>&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</div><div class="line">	<span class="keyword">constructor</span>()&#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> cp = <span class="keyword">new</span> ColorPoint(); <span class="comment">//ReferenceError</span></div></pre></td></tr></table></figure>
-
-
-上面的代码中ColorPoint继承了父类Point，但是它的构造函数没有调用super方法
-，导致新建实例时报错
-ES6的继承机制:先创造父类的实例对象this(所以必须先调用super方法),然后再用子类的构造函数修改this
-如果子类没有定义constructor方法，这个方法会被默认添加
-    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;&#125;</div><div class="line"><span class="comment">//等同于</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(...args)&#123;</div><div class="line">		<span class="keyword">super</span>(...args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-
-注:a.不管有没显示定义，任何一个子类都有constructor方法
-   b.在子类的constructor中只有先调用super之后才可以使用this关键字,否则会报错。这是因为子类实例的
-   创建，是基于对父类实例加工
-</code></pre><h3 id="Object-getPrototypeOf-方法"><a href="#Object-getPrototypeOf-方法" class="headerlink" title="Object.getPrototypeOf()方法"></a>Object.getPrototypeOf()方法</h3><pre><code>用于从子类上获取父类.
-    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.getPrototypeOf(ColorPoint) === Point</div><div class="line"><span class="comment">//true</span></div></pre></td></tr></table></figure>
-</code></pre><h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><pre><code>super可以当做函数使用，也可以当做对象使用，两种情况用法不同
-
-1.用作函数调用时:代表父类的构造函数。ES6中要求子类的构造函数必须执行一次super函数
-    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">	<span class="keyword">constructor</span>()&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-2.注:super虽然代表父类A的constructor,但是返回的是子类B的实例，即super内部的this指的
-是B，super()在这里相对于A.prototype.constructor.call(this);
-</code></pre>
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
-    <h2>目录</h2>
+    <h2>Table of Content</h2>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getPrototypeOf-方法"><span class="toc-text">Object.getPrototypeOf()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a></li></ol>
   </div>
 </div>
@@ -170,7 +148,7 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
   
 
   
-    <a href="/2017/07/31/hello-world/" class="next">下一篇 hexo使用中的一些问题 &rarr;</a>
+    <a href="/2017/07/31/hello-world/" class="next">Next post hexo使用中的一些问题 &rarr;</a>
   
 </nav>
 
