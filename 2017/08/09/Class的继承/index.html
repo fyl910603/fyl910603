@@ -18,7 +18,7 @@
   
     <meta name="description" content="layout: ‘[random]’title: Class的继承date: 2017-08-09 09:57:39
 tags:简介Class可以通过extends关键字实现继承
-123456789101112&lt;span class="hljs-class"&gt;&lt;span class="hljs-keyword"&gt;class&lt;/span&gt; &lt;span ...">
+&lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;...">
   
   <title> [ 方方的前端脚步 ]</title>
   
@@ -126,29 +126,44 @@ tags:简介Class可以通过extends关键字实现继承
     <hr>
 <p>layout: ‘[random]’<br>title: Class的继承<br>date: 2017-08-09 09:57:39</p>
 <h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Class可以通过extends关键字实现继承</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-class"</span>&gt;&lt;span class="hljs-keyword"&gt;class&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;Point&lt;<span class="regexp">/span&gt; &#123;&lt;/</span>span&gt;</div><div class="line">    &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-comment"</span>&gt;<span class="comment">/*...*/</span>&lt;/span&gt;</div><div class="line">&#125;</div><div class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-class"</span>&gt;&lt;span class="hljs-keyword"&gt;class&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;ColorPoint&lt;<span class="regexp">/span&gt; &lt;span class="hljs-keyword"&gt;&lt;span class="hljs-keyword"&gt;extends&lt;/</span>span&gt;&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;Point&lt;<span class="regexp">/span&gt;&#123;&lt;/</span>span&gt;</div><div class="line">    <span class="keyword">constructor</span>(x,y,color)&#123;</div><div class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-keyword"</span>&gt;<span class="keyword">super</span>&lt;<span class="regexp">/span&gt;(x,y);&lt;span class="hljs-comment"&gt;/</span><span class="regexp">/调用父类的constructor(x,y)&lt;/</span>span&gt;</div><div class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-keyword"</span>&gt;<span class="keyword">this</span>&lt;<span class="regexp">/span&gt;.color = color;</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">    toString()&#123;</span></div><div class="line"><span class="regexp">        &lt;span class="hljs-keyword"&gt;return&lt;/</span>span&gt; &lt;span class="hljs-keyword"&gt;this&lt;/span&gt;.color + <span class="string">' '</span> + &lt;span class="hljs-keyword"&gt;super&lt;/span&gt;.toString();&lt;span class="hljs-comment"&gt;//调用父类的toString方法&lt;/span&gt;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<pre><code>&lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt; {&lt;/span&gt;
+    &lt;span class=&quot;hljs-comment&quot;&gt;/*...*/&lt;/span&gt;
+}
+&lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;ColorPoint&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;
+    constructor(x,y,color){
+        &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;(x,y);&lt;span class=&quot;hljs-comment&quot;&gt;//调用父类的constructor(x,y)&lt;/span&gt;
+        &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.color = color;
+    }
+    toString(){
+        &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.color + &apos; &apos; + &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.toString();&lt;span class=&quot;hljs-comment&quot;&gt;//调用父类的toString方法&lt;/span&gt;
+    }
+}
 `&lt;/pre&gt;
 
 注意：
 a.super关键字在这里表示父类的构造函数，用来新建父类的this对象
 b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。不调用super方法，子类就得不到this对象
 
-&lt;pre&gt;`        &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;/*...*/&lt;/span&gt;}
-        &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;ColorPoint&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;
-            constructor(){
+&lt;pre&gt;`    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;&lt;span class=&quot;hljs-comment&quot;&gt;/*...*/&lt;/span&gt;}
+    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;ColorPoint&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;
+        constructor(){
 
-            }
         }
-        let cp = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-type&quot;&gt;ColorPoint&lt;/span&gt;(); &lt;span class=&quot;hljs-comment&quot;&gt;//ReferenceError&lt;/span&gt;
+    }
+    let cp = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-type&quot;&gt;ColorPoint&lt;/span&gt;(); &lt;span class=&quot;hljs-comment&quot;&gt;//ReferenceError&lt;/span&gt;
 `&lt;/pre&gt;
 
 上面的代码中ColorPoint继承了父类Point，但是它的构造函数没有调用super方法，导致新建实例时报错
 ES6的继承机制:先创造父类的实例对象this(所以必须先调用super方法),然后再用子类的构造函数修改this
 如果子类没有定义constructor方法，这个方法会被默认添加
 
-&lt;pre&gt;`    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-class"</span>&gt;&lt;span class="hljs-keyword"&gt;class&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;ColorPoint&lt;<span class="regexp">/span&gt; &lt;span class="hljs-keyword"&gt;&lt;span class="hljs-keyword"&gt;extends&lt;/</span>span&gt;&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;Point&lt;<span class="regexp">/span&gt;&#123;&lt;/</span>span&gt;&#125;</div><div class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-comment"</span>&gt;<span class="comment">//等同于&lt;/span&gt;</span></div><div class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-class"</span>&gt;&lt;span class="hljs-keyword"&gt;class&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;ColorPoint&lt;<span class="regexp">/span&gt; &lt;span class="hljs-keyword"&gt;&lt;span class="hljs-keyword"&gt;extends&lt;/</span>span&gt;&lt;/span&gt; &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-title"</span>&gt;Point&lt;<span class="regexp">/span&gt;&#123;&lt;/</span>span&gt;</div><div class="line">    <span class="keyword">constructor</span>(...args)&#123;</div><div class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"hljs-keyword"</span>&gt;<span class="keyword">super</span>&lt;<span class="regexp">/span&gt;(...args);</span></div><div class="line"><span class="regexp">    &#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure>
-
+&lt;pre&gt;`    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;ColorPoint&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;}
+    &lt;span class=&quot;hljs-comment&quot;&gt;//等同于&lt;/span&gt;
+    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;ColorPoint&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Point&lt;/span&gt;{&lt;/span&gt;
+        constructor(...args){
+            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;(...args);
+        }
+    }
 `&lt;/pre&gt;
 
 注:a.不管有没显示定义，任何一个子类都有constructor方法
@@ -158,10 +173,8 @@ b.在子类的constructor中只有先调用super之后才可以使用this关键�
 
 用于从子类上获取父类.
 
-&lt;pre&gt;`        `&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;``&lt;span class=&quot;javascript&quot;&gt;javascript
-        &lt;span class=&quot;hljs-built_in&quot;&gt;Object&lt;/span&gt;.getPrototypeOf(ColorPoint) === Point
+&lt;pre&gt;`        &lt;span class=&quot;hljs-built_in&quot;&gt;Object&lt;/span&gt;.getPrototypeOf(ColorPoint) === Point
         &lt;span class=&quot;hljs-comment&quot;&gt;//true&lt;/span&gt;
-        &lt;/span&gt;``&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;`
 `&lt;/pre&gt;
 
 ### super
