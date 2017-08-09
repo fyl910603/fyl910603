@@ -16,7 +16,7 @@
   
   
   
-    <meta name="description" content="1. 简介##### Class可以通过extends关键字实现继承
+    <meta name="description" content="简介 Class可以通过extends关键字实现继承
 
 class Point {
     /*...*/
@@ -25,7 +25,8 @@ class ColorPoint extends Point{
     constructor(x,y,color){
         super(x,y);//调用父类的constructor(x,y)
         this.color = color;
-  ...">
+    }
+    ...">
   
   <title>Class的继承 [ 方方的前端脚步 ]</title>
   
@@ -130,7 +131,7 @@ class ColorPoint extends Point{
       
     </p>
     
-    <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><pre><code>##### Class可以通过extends关键字实现继承
+    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><pre><code> Class可以通过extends关键字实现继承
 
 class Point {
     /*...*/
@@ -145,7 +146,7 @@ class ColorPoint extends Point{
     }
 }
 
-##### 注意：
+注意：
 a.super关键字在这里表示父类的构造函数，用来新建父类的this对象
 b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的
 this对象，而是继承父类的this对象，然后对其进行加工。不调用super方法，
@@ -175,11 +176,11 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
 注:a.不管有没显示定义，任何一个子类都有constructor方法
    b.在子类的constructor中只有先调用super之后才可以使用this关键字,否则会报错。这是因为子类实例的
    创建，是基于对父类实例加工
-</code></pre><h3 id="2-Object-getPrototypeOf-方法"><a href="#2-Object-getPrototypeOf-方法" class="headerlink" title="2. Object.getPrototypeOf()方法"></a>2. Object.getPrototypeOf()方法</h3><pre><code>用于从子类上获取父类.
+</code></pre><h3 id="Object-getPrototypeOf-方法"><a href="#Object-getPrototypeOf-方法" class="headerlink" title="Object.getPrototypeOf()方法"></a>Object.getPrototypeOf()方法</h3><pre><code>用于从子类上获取父类.
 
     Object.getPrototypeOf(ColorPoint) === Point
     //true
-</code></pre><h3 id="3-super"><a href="#3-super" class="headerlink" title="3. super"></a>3. super</h3><pre><code>super可以当做函数使用，也可以当做对象使用，两种情况用法不同
+</code></pre><h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><pre><code>super可以当做函数使用，也可以当做对象使用，两种情况用法不同
 
 1.用作函数调用时:代表父类的构造函数。ES6中要求子类的构造函数必须执行一次super函数
 
@@ -199,7 +200,7 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介"><span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Object-getPrototypeOf-方法"><span class="toc-text">2. Object.getPrototypeOf()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-super"><span class="toc-text">3. super</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getPrototypeOf-方法"><span class="toc-text">Object.getPrototypeOf()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a></li></ol>
   </div>
 </div>
 
