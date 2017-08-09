@@ -16,9 +16,7 @@
   
   
   
-    <meta name="description" content="1.简介Class可以通过extends关键字实现继承.
-
-
+    <meta name="description" content="1.简介    Class可以通过extends关键字实现继承.
 {%codeblock%}
 class Point {
     /*...*/
@@ -26,7 +24,7 @@ class Point {
 class ColorPoint extends Point{
     constructor(x,y,color){
         super(x,y);//调用父类的constructor(x,y)
-        this.color = ...">
+        this.color ...">
   
   <title>Class的继承 [ 方方的前端脚步 ]</title>
   
@@ -123,18 +121,16 @@ class ColorPoint extends Point{
   <article id="post">
     <h1>Class的继承</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">Created at 2017-08-09</span>
+      <span id = "post-title-date">撰写于 2017-08-09</span>
       
-        <span id = "post-title-updated">Updated at 2017-08-09</span>
+        <span id = "post-title-updated">修改于 2017-08-09</span>
       
       
       
     </p>
     
-    <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><pre><code>Class可以通过extends关键字实现继承.
-
-
-{%codeblock%}
+    <p> 1.简介<br>    Class可以通过extends关键字实现继承.</p>
+<pre><code>{%codeblock%}
 class Point {
     /*...*/
 }
@@ -150,7 +146,7 @@ class ColorPoint extends Point{
 }
 {%codeblock%}
 
-
+{%%}
 注意：
 a.super关键字在这里表示父类的构造函数，用来新建父类的this对象
 b.子类必须在constructor方法中调用super方法，否则新建实例时会报错，这是因为子类没有自己的
@@ -193,13 +189,13 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
 注:a.不管有没显示定义，任何一个子类都有constructor方法
    b.在子类的constructor中只有先调用super之后才可以使用this关键字,否则会报错。这是因为子类实例的
    创建，是基于对父类实例加工。
-</code></pre><h3 id="2-Object-getPrototypeOf-方法"><a href="#2-Object-getPrototypeOf-方法" class="headerlink" title="2. Object.getPrototypeOf()方法"></a>2. Object.getPrototypeOf()方法</h3><pre><code>:用于从子类上获取父类.
+</code></pre><h4 id="2-Object-getPrototypeOf-方法"><a href="#2-Object-getPrototypeOf-方法" class="headerlink" title="2. Object.getPrototypeOf()方法"></a>2. Object.getPrototypeOf()方法</h4><pre><code>:用于从子类上获取父类.
 
 {%codeblock%}
     Object.getPrototypeOf(ColorPoint) === Point
     //true
 {%codeblock%}
-</code></pre><h3 id="3-super关键字"><a href="#3-super关键字" class="headerlink" title="3. super关键字"></a>3. super关键字</h3><pre><code>super可以当做函数使用，也可以当做对象使用，两种情况用法不同
+</code></pre><h2 id="3-super关键字"><a href="#3-super关键字" class="headerlink" title="3. super关键字"></a>3. super关键字</h2><pre><code>super可以当做函数使用，也可以当做对象使用，两种情况用法不同
 
 1.用作函数调用时:代表父类的构造函数。ES6中要求子类的构造函数必须执行一次super函数
 
@@ -217,11 +213,11 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
 </code></pre>
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
   <div class="random-toc">
-    <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简介"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Object-getPrototypeOf-方法"><span class="toc-text">2. Object.getPrototypeOf()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-super关键字"><span class="toc-text">3. super关键字</span></a></li></ol>
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Object-getPrototypeOf-方法"><span class="toc-text">2. Object.getPrototypeOf()方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-super关键字"><span class="toc-text">3. super关键字</span></a>
   </div>
 </div>
 
@@ -232,7 +228,7 @@ ES6的继承机制:先创造父类的实例对象this(所以必须先调用super
   
 
   
-    <a href="/2017/07/31/hello-world/" class="next">Next post hexo使用中的一些问题 &rarr;</a>
+    <a href="/2017/07/31/hello-world/" class="next">下一篇 hexo使用中的一些问题 &rarr;</a>
   
 </nav>
 
