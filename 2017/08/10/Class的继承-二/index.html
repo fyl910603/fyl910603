@@ -16,8 +16,7 @@
   
   
   
-    <meta name="description" content="title: Class的继承(二)super    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constru...">
+    <meta name="description" content="title: Class的继承(二) super 123456789101112class A&#123;    constructor()&#123;        console.log(new.target.name);    &#125;&#125;class B extends A&#123;    constructor()&#123;        super();    &#...">
   
   <title> [ 方方的前端脚步 ]</title>
   
@@ -112,187 +111,38 @@
       
       
   <article id="post">
-    <h1>空标题</h1>
+    <h1>No Title</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">撰写于 2017-08-10</span>
+      <span id = "post-title-date">Created at 2017-08-10</span>
       
-        <span id = "post-title-updated">修改于 2017-08-10</span>
+        <span id = "post-title-updated">Updated at 2017-08-10</span>
       
       
       
     </p>
     
     <hr>
-<h2 id="title-Class的继承-二"><a href="#title-Class的继承-二" class="headerlink" title="title: Class的继承(二)"></a>title: Class的继承(二)</h2><h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><pre><code>    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt;.target.name);
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; B extends A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;();
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; A();
-    &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; B();
-`&lt;/pre&gt;
+<h2 id="title-Class的继承-二"><a href="#title-Class的继承-二" class="headerlink" title=" title: Class的继承(二) "></a> title: Class的继承(二) </h2><h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">new</span>.target.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">new</span> A();</div><div class="line"><span class="keyword">new</span> B();</div></pre></td></tr></table></figure>
+<p> 作为函数时，super()只能在子类的构造函数之中，用在其它地方会报错</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    m()&#123;</div><div class="line">        <span class="keyword">super</span>()<span class="comment">//报错</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="super作为对象时"><a href="#super作为对象时" class="headerlink" title="super作为对象时"></a>super作为对象时</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    p()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">super</span>.p())</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div></pre></td></tr></table></figure>
+<p> super在普通方法中，指向A.prototype,super.p()相当于A.prototype.p()<br> 由于super指向父类的原型对象，所以定义在父类实例上的方法或属性无法通过super调用<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.p = <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    get m()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.p;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div><div class="line">b.m <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
+<p> 以上，p是父类A实例的属性，super.p引用不到<br> 如果属性定义在父类的原型对象上，super就可以取到<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line">A.prototype.p = <span class="number">2</span>;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">super</span>.p)</div><div class="line">    &#125;   </div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div></pre></td></tr></table></figure></p>
+<p> ES6规定，通过super调用父类的方法时，super会绑定子类的this<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.x = <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    print()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">this</span>.x = <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">    m()&#123;</div><div class="line">        <span class="keyword">super</span>.print();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div><div class="line">b.m();<span class="comment">//2</span></div></pre></td></tr></table></figure></p>
+<p> A.prototype.print()绑定了子类B的this<br> 如果通过super对某个属性赋值，这是super就是this，赋值的属性会变成子类实例的属性<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.x = <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">this</span>.x = <span class="number">2</span>;</div><div class="line">        <span class="keyword">super</span>.x = <span class="number">3</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">super</span>.x);</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div></pre></td></tr></table></figure></p>
+<p> super.x赋值为3等同于this.x赋值为3，而当输出super.x的时候读取的是A.prototype.x,因此返回undefined</p>
+<p> 如果super作为对象，用在静态方法中，这是super将指向父类，而不是父类的原型对象。<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</div><div class="line">    <span class="keyword">static</span> myMethod(msg)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'static'</span>,msg);</div><div class="line">    &#125;</div><div class="line">    myMethod(msg)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'instance'</span>,msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</div><div class="line">    <span class="keyword">static</span> myMethod(msg)&#123;</div><div class="line">        <span class="keyword">super</span>.myMethod(msg);</div><div class="line">    &#125;</div><div class="line">    myMethod(msg)&#123;</div><div class="line">        <span class="keyword">super</span>.myMethod(msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.myMethod(<span class="number">1</span>);<span class="comment">//static 1</span></div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child();</div><div class="line">child.myMethod(<span class="number">2</span>);<span class="regexp">/instance 2</span></div></pre></td></tr></table></figure></p>
+<p> super在静态方法之中指向父类，在普通方法只能怪指向父类的原型对象<br>注意：使用super的时候必须<strong>显式指定作为函数还是对象使用</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">super</span>.valueOf() <span class="keyword">instanceof</span> B);<span class="comment">//true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div></pre></td></tr></table></figure></p>
+<p> super.valueOf()表明super是一个对象，同时super绑定B的this，所以super.valueOf()返回一个B的实例  </p>
+<p> 由于对象总是继承其它对象，因此可在任何一个对象中使用super关键字<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">   toString()&#123;</div><div class="line">       <span class="keyword">return</span> <span class="string">"MyObject: "</span>+ <span class="keyword">super</span>.toString(); </div><div class="line">   &#125;</div><div class="line">&#125;;</div><div class="line">obj.toString();<span class="comment">//</span></div></pre></td></tr></table></figure></p>
 
- 作为函数时，super()只能在子类的构造函数之中，用在其它地方会报错
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;}
-    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;
-        m(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;()&lt;span class=&quot;hljs-comment&quot;&gt;//报错&lt;/span&gt;
-        }
-    }
-`&lt;/pre&gt;
-
-#### super作为对象时
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;
-        p(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;;
-        }
-    }
-    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;
-        constructor(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;();
-            console.log(&lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.p())
-        }
-    }
-    let b = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-type&quot;&gt;B&lt;/span&gt;();
-`&lt;/pre&gt;
-
- super在普通方法中，指向A.prototype,super.p()相当于A.prototype.p()
- 由于super指向父类的原型对象，所以定义在父类实例上的方法或属性无法通过super调用
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;
-        constructor(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.p = &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;;
-        }
-    }
-    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;
-        get m(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.p;
-        }
-    }
-    let b = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-type&quot;&gt;B&lt;/span&gt;();
-    b.m &lt;span class=&quot;hljs-comment&quot;&gt;//undefined&lt;/span&gt;
-`&lt;/pre&gt;
-
- 以上，p是父类A实例的属性，super.p引用不到
- 如果属性定义在父类的原型对象上，super就可以取到
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;}
-    &lt;span class=&quot;hljs-type&quot;&gt;A&lt;/span&gt;.prototype.p = &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;;
-    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;A&lt;/span&gt;{&lt;/span&gt;
-        constructor(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;();
-            console.log(&lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.p)
-        }    
-    }
-    let b = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-type&quot;&gt;B&lt;/span&gt;();
-`&lt;/pre&gt;
-
- ES6规定，通过super调用父类的方法时，super会绑定子类的this
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.x = &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;;
-        }
-        print(){
-            &lt;span class=&quot;hljs-built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.x);
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; B extends A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;();
-            &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.x = &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;;
-        }
-        m(){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.print();
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; b = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; B();
-    b.m();&lt;span class=&quot;hljs-comment&quot;&gt;//2&lt;/span&gt;
-`&lt;/pre&gt;
-
- A.prototype.print()绑定了子类B的this
- 如果通过super对某个属性赋值，这是super就是this，赋值的属性会变成子类实例的属性
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.x = &lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;;
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; B extends A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;();
-            &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.x = &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;;
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.x = &lt;span class=&quot;hljs-number&quot;&gt;3&lt;/span&gt;;
-            &lt;span class=&quot;hljs-built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.x);
-            &lt;span class=&quot;hljs-built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.x);
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; b = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; B();
-`&lt;/pre&gt;
-
- super.x赋值为3等同于this.x赋值为3，而当输出super.x的时候读取的是A.prototype.x,因此返回undefined
-
- 如果super作为对象，用在静态方法中，这是super将指向父类，而不是父类的原型对象。
-
-&lt;pre&gt;`     &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Parent&lt;/span&gt;{&lt;/span&gt;
-        static myMethod(msg){
-            console.log(&lt;span class=&quot;hljs-symbol&quot;&gt;&apos;stati&lt;/span&gt;c&apos;,msg);
-        }
-        myMethod(msg){
-            console.log(&lt;span class=&quot;hljs-symbol&quot;&gt;&apos;instanc&lt;/span&gt;e&apos;,msg);
-        }
-    }
-    &lt;span class=&quot;hljs-class&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Child&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;extends&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;Parent&lt;/span&gt;{&lt;/span&gt;
-        static myMethod(msg){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.myMethod(msg);
-        }
-        myMethod(msg){
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.myMethod(msg);
-        }
-    }
-    &lt;span class=&quot;hljs-type&quot;&gt;Child&lt;/span&gt;.myMethod(&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;);&lt;span class=&quot;hljs-comment&quot;&gt;//static 1&lt;/span&gt;
-    &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; child = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-type&quot;&gt;Child&lt;/span&gt;();
-    child.myMethod(&lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;);/instance &lt;span class=&quot;hljs-number&quot;&gt;2&lt;/span&gt;
-`&lt;/pre&gt;
-
- super在静态方法之中指向父类，在普通方法只能怪指向父类的原型对象
-注意：使用super的时候必须**显式指定作为函数还是对象使用**
-
-&lt;pre&gt;`    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; A{}
-    &lt;span class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt; B extends A{
-        &lt;span class=&quot;hljs-constructor&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;constructor&lt;/span&gt;()&lt;/span&gt;{
-            &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;();
-            &lt;span class=&quot;hljs-built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.valueOf() &lt;span class=&quot;hljs-keyword&quot;&gt;instanceof&lt;/span&gt; B);&lt;span class=&quot;hljs-comment&quot;&gt;//true&lt;/span&gt;
-        }
-    }
-    &lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; b = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; B();
-`&lt;/pre&gt;
-
- super.valueOf()表明super是一个对象，同时super绑定B的this，所以super.valueOf()返回一个B的实例  
-
- 由于对象总是继承其它对象，因此可在任何一个对象中使用super关键字
-
-&lt;pre&gt;` &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; obj = {
-     &lt;span class=&quot;hljs-built_in&quot;&gt;toString&lt;/span&gt;(){
-        &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;&quot;MyObject: &quot;&lt;/span&gt;+ &lt;span class=&quot;hljs-keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;hljs-built_in&quot;&gt;toString&lt;/span&gt;(); 
-    }
- };
- obj.&lt;span class=&quot;hljs-built_in&quot;&gt;toString&lt;/span&gt;();&lt;span class=&quot;hljs-comment&quot;&gt;//&lt;/span&gt;
-</code></pre>
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
-    <h2>目录</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-Class的继承-二"><span class="toc-text">title: Class的继承(二)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a></li></ol></li></ol>
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-Class的继承-二"><span class="toc-text"> title: Class的继承(二) </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#super作为对象时"><span class="toc-text">super作为对象时</span></a></li></ol></li></ol></li></ol>
   </div>
 </div>
 
@@ -303,7 +153,7 @@
   
 
   
-    <a href="/2017/08/09/Class的继承/" class="next">下一篇  &rarr;</a>
+    <a href="/2017/08/09/Class的继承/" class="next">Next post  &rarr;</a>
   
 </nav>
 
