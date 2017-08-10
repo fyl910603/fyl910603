@@ -16,9 +16,9 @@
   
   
   
-    <meta name="description" content="title: Class的继承(二) super 123456789101112class A&#123;%    constructor()&#123;%        console.log(new.target.name);    %&#125;%&#125;class B extends A&#123;%    constructor()&#123;%        super();...">
+    <meta name="description" content="super 123456789101112class A&#123;%    constructor()&#123;%        console.log(new.target.name);    %&#125;%&#125;class B extends A&#123;%    constructor()&#123;%        super();    %&#125;%&#125;n...">
   
-  <title> [ 方方的前端脚步 ]</title>
+  <title>Class的继承2 [ 方方的前端脚步 ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -111,18 +111,17 @@
       
       
   <article id="post">
-    <h1>空标题</h1>
+    <h1>Class的继承2</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">撰写于 2017-08-10</span>
+      <span id = "post-title-date">Created at 2017-08-10</span>
       
-        <span id = "post-title-updated">修改于 2017-08-10</span>
+        <span id = "post-title-updated">Updated at 2017-08-10</span>
       
       
       
     </p>
     
-    <hr>
-<h2 id="title-Class的继承-二"><a href="#title-Class的继承-二" class="headerlink" title=" title: Class的继承(二) "></a> title: Class的继承(二) </h2><h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;%</div><div class="line">    <span class="keyword">constructor</span>()&#123;%</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">new</span>.target.name);</div><div class="line">    %&#125;</div><div class="line">%&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;%</div><div class="line">    <span class="keyword">constructor</span>()&#123;%</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">    %&#125;</div><div class="line">%&#125;</div><div class="line"><span class="keyword">new</span> A();</div><div class="line"><span class="keyword">new</span> B();</div></pre></td></tr></table></figure>
+    <h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;%</div><div class="line">    <span class="keyword">constructor</span>()&#123;%</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">new</span>.target.name);</div><div class="line">    %&#125;</div><div class="line">%&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;%</div><div class="line">    <span class="keyword">constructor</span>()&#123;%</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">    %&#125;</div><div class="line">%&#125;</div><div class="line"><span class="keyword">new</span> A();</div><div class="line"><span class="keyword">new</span> B();</div></pre></td></tr></table></figure>
 <p> 作为函数时，super()只能在子类的构造函数之中，用在其它地方会报错</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;%%&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;%</div><div class="line">    m()&#123;%</div><div class="line">        <span class="keyword">super</span>()<span class="comment">//报错</span></div><div class="line">    %&#125;</div><div class="line">%&#125;</div></pre></td></tr></table></figure>
 <h4 id="super作为对象时"><a href="#super作为对象时" class="headerlink" title="super作为对象时"></a>super作为对象时</h4> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;%</div><div class="line">    p()&#123;%</div><div class="line">        <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">    %&#125;</div><div class="line">%&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;%</div><div class="line">    <span class="keyword">constructor</span>()&#123;%</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">super</span>.p())</div><div class="line">    %&#125;</div><div class="line">%&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B();</div></pre></td></tr></table></figure>
@@ -138,11 +137,11 @@
 
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
-    <h2>目录</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-Class的继承-二"><span class="toc-text"> title: Class的继承(二) </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#super作为对象时"><span class="toc-text">super作为对象时</span></a></li></ol></li></ol></li></ol>
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#super作为对象时"><span class="toc-text">super作为对象时</span></a></li></ol></li></ol>
   </div>
 </div>
 
@@ -153,7 +152,7 @@
   
 
   
-    <a href="/2017/08/09/Class的继承/" class="next">下一篇  &rarr;</a>
+    <a href="/2017/08/09/Class的继承/" class="next">Next post  &rarr;</a>
   
 </nav>
 
